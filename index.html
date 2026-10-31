@@ -1,62 +1,213 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111312"><meta name="description" content="15分で、今日の自分を起動する。MORNING OS — 毎朝のジャーナリング。">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#111312">
+<meta name="description" content="15分で、今日の自分を起動する。MORNING OS — 毎朝のジャーナリング。">
 <title>MORNING OS</title>
 <style>
-:root{color-scheme:dark;--bg:#111312;--panel:#1b1e1c;--ink:#f1f2eb;--muted:#a5aaa1;--accent:#d2e7a3;--line:#343a32}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;line-height:1.7}main{max-width:640px;margin:auto;padding:24px 24px max(32px,env(safe-area-inset-bottom))}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:32px}.brand{font-size:14px;letter-spacing:.16em;font-weight:700}.edition,.eyebrow{font-size:11px;letter-spacing:.19em;color:var(--accent)}h1{font-size:clamp(46px,13vw,76px);line-height:1.02;letter-spacing:-.055em;margin:24px 0}h2{font-size:29px;line-height:1.35;margin:16px 0}p{color:var(--muted)}.lead{font-size:16px;line-height:1.9}.rule{height:1px;background:var(--line);margin:28px 0}.meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:12px}.accent{color:var(--accent)}button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--ink);min-height:52px;padding:12px 18px}button:hover{border-color:var(--accent)}button:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.primary{background:var(--accent);color:#172010;border-color:var(--accent);font-weight:700;letter-spacing:.08em}.wide{width:100%}.actions{display:flex;gap:12px;margin-top:20px}.actions>*{flex:1}.steps{list-style:none;padding:0;margin:24px 0}.steps li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.steps span{color:var(--muted)}.timer{font-size:clamp(84px,23vw,132px);line-height:1.1;font-weight:500;letter-spacing:-.065em;font-variant-numeric:tabular-nums;margin:18px 0 4px}.status{min-height:25px;font-size:12px;letter-spacing:.2em;color:var(--accent)}progress{width:100%;height:4px;display:block;border:0;background:var(--line);accent-color:var(--accent);margin:14px 0 28px}progress::-webkit-progress-bar{background:var(--line)}progress::-webkit-progress-value{background:var(--accent)}label{display:block}textarea,input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:4px;color:var(--ink);font:inherit;padding:16px;resize:vertical}textarea{min-height:190px;line-height:1.9;margin-top:16px}textarea::placeholder,input::placeholder{color:#81877c}.hint{font-size:12px;color:var(--muted);margin:12px 0}.notice{font-size:13px;color:var(--accent);white-space:pre-wrap}.card{padding:20px 0;border-bottom:1px solid var(--line)}.card h3{font-size:12px;letter-spacing:.15em;color:var(--accent);margin:0 0 10px}.answer{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:var(--ink)}.line{font-size:24px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}.hidden{display:none!important}details{border-bottom:1px solid var(--line);padding:18px 0}summary{cursor:pointer;color:var(--muted)}footer{font-size:10px;letter-spacing:.12em;color:var(--muted);margin-top:36px}#historyList button{width:100%;text-align:left;margin:6px 0}.quiet{font-size:12px;min-height:44px} @media(min-width:700px){main{padding-top:40px}header{margin-bottom:48px}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s,border-color .15s}}
+:root{color-scheme:dark;--bg:#111312;--panel:#1b1e1c;--ink:#f1f2eb;--muted:#a5aaa1;--accent:#d2e7a3;--line:#343a32}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,'Hiragino Kaku Gothic ProN',Meiryo,sans-serif;line-height:1.7}
+main{max-width:640px;margin:auto;padding:24px 24px max(32px,env(safe-area-inset-bottom))}
+header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:32px}
+.brand{font-size:14px;letter-spacing:.16em;font-weight:700}.edition,.eyebrow{font-size:11px;letter-spacing:.19em;color:var(--accent)}
+h1{font-size:clamp(46px,13vw,76px);line-height:1.02;letter-spacing:-.055em;margin:24px 0}h2{font-size:29px;line-height:1.35;margin:16px 0}
+p{color:var(--muted)}.lead{font-size:16px;line-height:1.9}.rule{height:1px;background:var(--line);margin:28px 0}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:12px}.accent{color:var(--accent)}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--ink);min-height:52px;padding:12px 18px}
+button:hover{border-color:var(--accent)}button:focus-visible,textarea:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.primary{background:var(--accent);color:#172010;border-color:var(--accent);font-weight:700;letter-spacing:.08em}.wide{width:100%}
+.actions{display:flex;gap:12px;margin-top:20px}.actions>*{flex:1}.steps{list-style:none;padding:0;margin:24px 0}
+.steps li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.steps span{color:var(--muted)}
+.timer{font-size:clamp(84px,23vw,132px);line-height:1.1;font-weight:500;letter-spacing:-.065em;font-variant-numeric:tabular-nums;margin:18px 0 4px}
+.status{min-height:25px;font-size:12px;letter-spacing:.2em;color:var(--accent)}progress{width:100%;height:4px;display:block;border:0;background:var(--line);accent-color:var(--accent);margin:14px 0 28px}
+progress::-webkit-progress-bar{background:var(--line)}progress::-webkit-progress-value{background:var(--accent)}
+label{display:block}textarea,input{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:4px;color:var(--ink);font:inherit;padding:16px;resize:vertical}
+textarea{min-height:190px;line-height:1.9;margin-top:16px}textarea::placeholder,input::placeholder{color:#81877c}
+.hint{font-size:12px;color:var(--muted);margin:12px 0}.notice{font-size:13px;color:var(--accent);white-space:pre-wrap}
+.card{padding:20px 0;border-bottom:1px solid var(--line)}.card h3{font-size:12px;letter-spacing:.15em;color:var(--accent);margin:0 0 10px}
+.answer{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:var(--ink)}.line{font-size:24px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.hidden{display:none!important}details{border-bottom:1px solid var(--line);padding:18px 0}summary{cursor:pointer;color:var(--muted)}
+footer{font-size:10px;letter-spacing:.12em;color:var(--muted);margin-top:36px}#historyList button{width:100%;text-align:left;margin:6px 0}.quiet{font-size:12px;min-height:44px}
+.daily-badge{font-size:10px;letter-spacing:.15em;color:var(--accent);margin:0 0 10px}
+@media(min-width:700px){main{padding-top:40px}header{margin-bottom:48px}}@media(prefers-reduced-motion:no-preference){button{transition:background .15s,border-color .15s}}
 </style>
 </head>
 <body><main>
-<header><span class="brand">MORNING OS<span class="accent">.</span></span><span class="edition">DAILY BOOT / V1</span></header>
-<section id="home"><div class="eyebrow" id="date"></div><h1>OWN YOUR<br>MORNING.</h1><p class="lead">15分で、今日の自分を起動する。<br>考えを書き出し、使うべき一日を決める。</p><div class="rule"></div><div class="meta"><span>7 THEMES</span><span>15 MINUTES</span><span>JUST YOU.</span></div><ol class="steps" id="stepList"></ol><button id="start" class="primary wide">START YOUR OS →</button><p class="hint">正解も、文字数のルールもありません。空欄でも進めます。</p><button id="resume" class="wide hidden">途中から再開</button><button id="history" class="wide quiet">過去の記録を見る</button></section>
-<section id="session" class="hidden" aria-label="ジャーナリング"><div class="meta"><span id="stepNo" class="accent"></span><span id="total"></span></div><progress id="progress" max="900" value="0" aria-label="全体の進捗"></progress><div class="eyebrow" id="theme"></div><div id="timer" class="timer" role="timer" aria-label="STEPの残り時間"></div><div id="status" class="status" aria-live="polite"></div><h2 id="subtitle"></h2><label for="answer" id="question"></label><textarea id="answer" placeholder="今、思い浮かぶことを。そのまま。"></textarea><p class="hint" id="guide"></p><div class="actions"><button id="extend">+1 MIN</button><button id="next" class="primary">NEXT →</button></div><p class="hint">時間が来ても、自分のペースで次へ。延長分は全体の残り時間にも加算されます。</p><button id="leave" class="quiet">中断してホームへ</button></section>
-<section id="complete" class="hidden"><div class="eyebrow" id="resultDate"></div><h1>BOOT<br>COMPLETE<span class="accent">.</span></h1><p class="lead">考えたことを、今日の行動へ。</p><div class="rule"></div><div class="eyebrow">TODAY'S OS</div><div id="os"></div><details><summary>CONFIDENCE / CLEAR も振り返る</summary><div id="other"></div></details><div class="rule"></div><div class="eyebrow">TODAY'S LINE</div><p class="line" id="todayLine"></p><label for="lineEdit">今日という1日を、何に使うか。</label><p class="hint">持っていく一文を、自分の言葉で仕上げてください。</p><textarea id="lineEdit" style="min-height:100px" aria-label="今日持っていく一文"></textarea><button id="saveLine" class="wide primary">この一文を保存</button><p class="hint" id="saved"></p><button id="back" class="wide">ホームへ</button></section>
-<section id="historyView" class="hidden"><div class="eyebrow">YOUR ARCHIVE</div><h2>積み重ねた朝。</h2><p class="hint">この端末・このブラウザの直近60回。</p><div id="historyList"></div><button id="historyBack" class="wide">ホームへ</button></section>
+<header><span class="brand">MORNING OS<span class="accent">.</span></span><span class="edition">DAILY BOOT / V2</span></header>
+
+<section id="home">
+<div class="eyebrow" id="date"></div><h1>OWN YOUR<br>MORNING.</h1>
+<p class="lead">15分で、今日の自分を起動する。<br>考えを書き出し、使うべき一日を決める。</p>
+<div class="rule"></div><div class="meta"><span>7 THEMES</span><span>15 MINUTES</span><span>DAILY QUESTIONS</span></div>
+<ol class="steps" id="stepList"></ol>
+<button id="start" class="primary wide">START YOUR OS →</button>
+<p class="hint">7つの軸は固定。問いは毎日変わります。同じ日は同じ問い、直近7日は原則重複しません。</p>
+<button id="resume" class="wide hidden">途中から再開</button><button id="history" class="wide quiet">過去の記録を見る</button>
+</section>
+
+<section id="session" class="hidden" aria-label="ジャーナリング">
+<div class="meta"><span id="stepNo" class="accent"></span><span id="total"></span></div>
+<progress id="progress" max="900" value="0" aria-label="全体の進捗"></progress>
+<div class="eyebrow" id="theme"></div><div id="timer" class="timer" role="timer" aria-label="STEPの残り時間"></div>
+<div id="status" class="status" aria-live="polite"></div><h2 id="subtitle"></h2>
+<p class="daily-badge">TODAY'S QUESTION</p><label for="answer" id="question"></label>
+<textarea id="answer" placeholder="今、思い浮かぶことを。そのまま。"></textarea><p class="hint" id="guide"></p>
+<div class="actions"><button id="extend">+1 MIN</button><button id="next" class="primary">NEXT →</button></div>
+<p class="hint">時間が来ても、自分のペースで次へ。延長分は全体の残り時間にも加算されます。</p>
+<button id="leave" class="quiet">中断してホームへ</button>
+</section>
+
+<section id="complete" class="hidden">
+<div class="eyebrow" id="resultDate"></div><h1>BOOT<br>COMPLETE<span class="accent">.</span></h1>
+<p class="lead">考えたことを、今日の行動へ。</p><div class="rule"></div><div class="eyebrow">TODAY'S OS</div><div id="os"></div>
+<details><summary>CONFIDENCE / CLEAR も振り返る</summary><div id="other"></div></details>
+<div class="rule"></div><div class="eyebrow">TODAY'S LINE</div><p class="line" id="todayLine"></p>
+<label for="lineEdit">今日という1日を、何に使うか。</label><p class="hint">持っていく一文を、自分の言葉で仕上げてください。</p>
+<textarea id="lineEdit" style="min-height:100px" aria-label="今日持っていく一文"></textarea>
+<button id="saveLine" class="wide primary">この一文を保存</button><p class="hint" id="saved"></p><button id="back" class="wide">ホームへ</button>
+</section>
+
+<section id="historyView" class="hidden">
+<div class="eyebrow">YOUR ARCHIVE</div><h2>積み重ねた朝。</h2><p class="hint">この端末・このブラウザの直近60回。</p>
+<div id="historyList"></div><button id="historyBack" class="wide">ホームへ</button>
+</section>
 <p id="notice" class="notice" role="status"></p><footer>PRIVATE BY DESIGN · STORED ON THIS DEVICE</footer>
-</main><script>
+</main>
+
+<script>
 'use strict';
+
 const THEMES=[
- ['LIFE','人生の価値',120,'今日、何を大切にして生きたい？','自分にとって価値のあることを、一つでも。'],
- ['CONFIDENCE','自信を持つこと',120,'今の自分が信じていい力や、積み重ねは？','小さな実績、乗り越えたこと、できること。'],
- ['WORK','仕事においての姿勢',120,'今日の仕事で、どんな姿勢を貫く？','最も価値を生む行動と、手放すことを考える。'],
- ['THINK','頭のキレ',150,'今ある前提を一つ疑うなら？','別の見方、問い直したいこと、試す仮説。'],
- ['MONEY','金を稼ぐこと（仕事以外）',150,'仕事以外で、誰のどんな困りごとを価値に変えられる？','スキル・知識・資産から、小さな一歩を。'],
- ['CLEAR','思考整理',120,'頭に残っていることは？ 今日やることを一つ選ぶなら？','気がかりを書き出し、やることと後回しを整理する。'],
- ['WORLD','知らない業界・世の中の動向',120,'最近知った業界や動向は、仕事にどうつながる？','知らなければ、今日調べる業界と確かめたい問いを書く。ニュースの自動取得はありません。']
+ {key:'LIFE',title:'人生の価値',sec:120,guide:'価値観・時間・人・生き方。今日の自分に本当に効く答えを。'},
+ {key:'CONFIDENCE',title:'自信を持つこと',sec:120,guide:'根拠のある自信も、まだ根拠のない決意も使っていい。'},
+ {key:'WORK',title:'仕事においての姿勢',sec:120,guide:'成果・判断・優先順位・リーダーシップの角度から考える。'},
+ {key:'THINK',title:'頭のキレ',sec:150,guide:'前提を疑い、分解し、別の見方をつくる。'},
+ {key:'MONEY',title:'金を稼ぐこと（仕事以外）',sec:150,guide:'本業の外で価値をつくり、届け、収益に変える視点を持つ。'},
+ {key:'CLEAR',title:'思考整理',sec:120,guide:'頭の中のノイズを外へ出し、今日扱うものを決める。'},
+ {key:'WORLD',title:'知らない業界・世の中の動向',sec:120,guide:'自分の外側に視点を向け、仕事につながる仮説を一つ持つ。'}
 ];
-const KEY='morning-os-v1',DRAFT=KEY+'-draft';
+
+const QUESTIONS={
+LIFE:[
+'今日、何を大切にして生きたい？','今日という1日が終わった時、何ができていれば「いい日だった」と言える？','今の自分が、もっと時間を使うべきものは何？',
+'逆に、もう時間を使わなくていいものは何？','今守りたい人・関係・価値観は何？','もし今日がいつもの1日ではなく特別な1日なら、何を変える？',
+'今の生活で「本当はこうしたい」と思っていることは？','5年後の自分から見て、今日やっておいてほしいことは？','最近、自分が豊かだと感じた瞬間は何だった？',
+'今の自分にとって成功とは何？','今日、誰にどんな態度で接したい？','今持っているものの中で、当たり前にしたくないものは？',
+'何を増やせば、今の人生はもっと自分らしくなる？','何を減らせば、今の人生はもっと軽くなる？','今日、自分の意思で選びたいことは何？',
+'今、一番失いたくないものは何？ なぜ？','最近の選択で「これは自分らしかった」と思えるものは？','今日、自分のために確保したい時間は？',
+'もし他人の評価が一切なければ、今日は何を選ぶ？','今の自分が大切にしたい「余白」はどこにある？','今日、人生を1ミリ良くするなら何をする？'
+],
+CONFIDENCE:[
+'今の自分が信じていい力や、積み重ねは？','これまで乗り越えたことで、今日にも使える経験は何？','今の自分が以前より確実に強くなった部分は？',
+'最近うまくできたことを、偶然ではなく自分の力として説明すると？','今日、自信を持って決めていいことは何？','自分が他人より自然にできることは何？',
+'今までの自分が証明してきた「俺ならできる」は何？','今日、不安より経験を信じるなら何をする？','今の自分に足りないのは能力か、それとも迷いを捨てることか？',
+'誰かに評価されなくても、自分で認めていい成果は何？','今日、一段堂々と振る舞うなら何が変わる？','失敗しても自分の価値が下がらないとしたら、何に踏み込む？',
+'最近避けていることの中で、本当はできると分かっていることは？','自分の判断を信じていい理由を3つ挙げるなら？','今の自分が昔の自分に誇れることは？',
+'今日「遠慮しない」と決めるなら、どこで？','今持っている武器を一つだけ選ぶなら何？','他人と比較せず、自分の成長だけを見ると何が伸びた？',
+'今日、自分にどんな言葉をかけてスタートしたい？','怖さが半分になったら、今日何をする？','今日の自分に必要なのは、準備・勇気・決断のどれ？'
+],
+WORK:[
+'今日の仕事で、どんな姿勢を貫く？','今日、一番前に進めるべき仕事は何？','今日、自分にしかできない仕事は何？',
+'今抱えている仕事で、やめる・任せる・後回しにするものは？','今日一日で成果を2倍にするなら、何を変える？','今、避けている重要な判断は何？',
+'今日の80点を最短で出すなら、何から始める？','忙しさではなく成果で見ると、今日の最重要行動は何？','今日、誰の意思決定を前に進めれば全体が動く？',
+'今のチームに、自分が最も提供すべきものは何？','今日、経営者の視点で一つだけ変えるなら何？','今の仕事で「やっているだけ」になっているものは？',
+'今日、先送りすると後で一番高くつくことは何？','今日の会議・連絡・作業で、目的が曖昧なものは？','今日、期待値を一段超えるならどこで超える？',
+'今日、自分がボトルネックになりそうなことは何？','今日の仕事で、速さより質を優先すべきものは？','逆に、質より速さを優先すべきものは？',
+'今日、部下や仲間に任せるべきことは何？','今日一つだけ「決め切る」としたら何？','今日の終業時に、何が動いていれば勝ちか？'
+],
+THINK:[
+'今ある前提を一つ疑うなら？','今の問題を、まったく別の業界ならどう解く？','「問題だ」と思っているものは、本当に問題そのものか？',
+'今の課題を3つに分解すると何になる？','逆の立場から見ると、今の状況はどう見える？','今の判断で、事実と解釈が混ざっている部分は？',
+'一番ありそうな答えではなく、二番目にありそうな答えは？','今見えていない変数があるとしたら何？','この問題を10倍簡単にするとしたら何を捨てる？',
+'この問題を10倍大きく考えると、何が重要になる？','「なぜ？」を3回繰り返すと、何が根本に残る？','今の選択肢以外に、第三の選択肢を作るなら？',
+'今日、一つ仮説を立てて検証するなら何？','自分が間違っているとしたら、どこが一番怪しい？','数字で確かめるべき思い込みは何？',
+'今の課題を一文で定義し直すなら？','制約が一つ消えるなら、どの制約を消す？','情報が半分しかなくても決めるなら、何を基準にする？',
+'今考えていることを、初めて聞く人に30秒で説明すると？','競合や他人が自分と逆の判断をする理由は何？','今日、頭を使う価値が最も高い問いは何？'
+],
+MONEY:[
+'仕事以外で、誰のどんな困りごとを価値に変えられる？','自分の知識・経験で、お金を払ってでも短縮したい人の時間は何？','今持っているスキルを商品にするとしたら何になる？',
+'自分が無料でやっていることで、本来価値があるものは？','1万円を生む小さな商品を今日作るなら何？','自分の経験を「再現可能な型」にすると何が売れる？',
+'誰かの面倒を一つ消すことで、収益にできるものは？','今の人脈・知識・資産を組み合わせると何が作れる？','副収入を2倍にするより、入口を一つ作るなら何？',
+'自分が買う側なら、どんなサービスに今お金を払う？','今後価値が上がりそうな自分の能力は何？','AIを使って一人で提供できる価値は何？',
+'今日30分だけ副収益のために使うなら何をする？','売る前に需要を確かめるなら、誰に何を聞く？','一度作れば繰り返し売れるものを作るなら何？',
+'自分の「詳しさ」が当たり前すぎて見落としている市場は？','100人ではなく、まず1人に売るなら誰に何を売る？','価格をつけるなら、成果・時間・安心のどれに対して課金する？',
+'本業で得た能力を、本業の外で合法的に活かすなら？','今後3年で伸びる市場と、自分の接点はどこ？','今日、稼ぐ力を1ミリ上げる行動は何？'
+],
+CLEAR:[
+'頭に残っていることは？ 今日やることを一つ選ぶなら？','今、頭のメモリを一番使っていることは何？','今日考えなくていいことを一つ手放すなら？',
+'気になっていることを全部並べた時、一番先に処理すべきものは？','今すぐ決められるのに保留していることは？','今日やる・後でやる・やらない、の3つに分けると？',
+'今のモヤモヤを一文にすると何？','自分でコントロールできることと、できないことは何？','今日の優先順位を3つだけにするなら？',
+'未完了のことで、一番小さな一歩は何？','誰かに伝えれば頭から下ろせることは何？','今日の予定から一つ消すなら何？',
+'今の不安は、行動で減らせるものか、受け入れるものか？','頭の中で繰り返していることに、結論を出すなら？','今日の「やらないことリスト」に何を入れる？',
+'今必要なのは、考えること・決めること・動くことのどれ？','今日中に終わらせる必要がないものは何？','今の自分を散らかしている情報源は何？',
+'一番大事なこと以外を一度消すと、何が残る？','今日の自分に必要な余白をどこで作る？','今この瞬間、頭から外に出しておきたいことは何？'
+],
+WORLD:[
+'最近知った業界や動向は、仕事にどうつながる？','今、自分の業界の外で急速に変わっている市場は何？','AI以外で、今後3年の仕事を変えそうな動きは何？',
+'最近ニュースで見た変化のうち、自社に波及しそうなものは？','今まで興味がなかった業界を一つ選ぶならどこ？ なぜ？','人手不足が最も大きなビジネス機会になる業界はどこ？',
+'人口構造の変化で、これから伸びる需要は何？','今の若い世代の価値観の変化は、採用や仕事をどう変える？','海外で先に起きていて、日本にも来そうな変化は何？',
+'今後「人がやらなくなる仕事」は何だと思う？','逆に、AI時代でも人の価値が上がる仕事は何？','規制や法改正が市場を作りそうな領域はどこ？',
+'今、資金が集まっている業界から何を読み取れる？','最近のM&Aから、業界再編の兆しを一つ探すなら？','自分の仕事にまだ入ってきていないテクノロジーは何？',
+'5年後に当たり前になっていそうなサービスは何？','今後「高くても買われる」ものは何だと思う？','今の社会で、まだ解決されていない大きな不便は何？',
+'今日一つだけ新しい業界を調べるなら、どこを見る？','競合ではなく異業種から真似できる仕組みは何？','今日、世の中について一つだけ確かめたい仮説は何？'
+]};
+
+const KEY='morning-os-v1',DRAFT=KEY+'-draft',QH='morning-os-v2-question-history';
 const $=id=>document.getElementById(id);
 let records=[],state=null,current=null,view='home',lastStatus='';
+
 const dateOf=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
 const format=n=>`${Math.floor(n/60).toString().padStart(2,'0')}:${(n%60).toString().padStart(2,'0')}`;
 function warn(message){$('notice').textContent=message;}
 function read(key,fallback){try{const v=localStorage.getItem(key);return v?JSON.parse(v):fallback;}catch(e){warn('保存データを読み込めませんでした。この画面では利用できますが、端末への保存は保証されません。');return fallback;}}
-function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch(e){warn('端末に保存できませんでした。空き容量・ブラウザ設定を確認し、必要な回答をコピーしてください。');return false;}}
-function validRecord(r){return r&&typeof r.id==='string'&&typeof r.date==='string'&&Array.isArray(r.answers)&&r.answers.length===7&&r.answers.every(a=>typeof a==='string')&&typeof r.line==='string'&&Array.isArray(r.os)&&r.os.every(x=>x&&typeof x.theme==='string'&&typeof x.text==='string');}
+function write(key,value){try{localStorage.setItem(key,JSON.stringify(value));return true;}catch(e){warn('端末に保存できませんでした。空き容量・ブラウザ設定を確認してください。');return false;}}
+function validRecord(r){return r&&typeof r.id==='string'&&typeof r.date==='string'&&Array.isArray(r.answers)&&r.answers.length===7&&r.answers.every(a=>typeof a==='string')&&typeof r.line==='string'&&Array.isArray(r.os);}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function dailyQuestions(date){
+  let hist=read(QH,[]);
+  if(!Array.isArray(hist))hist=[];
+  const same=hist.find(x=>x&&x.date===date&&Array.isArray(x.ids)&&x.ids.length===7);
+  if(same)return same.ids.map((id,i)=>QUESTIONS[THEMES[i].key][id] || QUESTIONS[THEMES[i].key][0]);
+  const recent=hist.slice(0,7);
+  const ids=THEMES.map((t,i)=>{
+    const pool=QUESTIONS[t.key], used=new Set(recent.map(x=>x.ids?.[i]).filter(Number.isInteger));
+    const start=hash(date+'|'+t.key)%pool.length;
+    for(let n=0;n<pool.length;n++){const idx=(start+n)%pool.length;if(!used.has(idx))return idx;}
+    return start;
+  });
+  hist=[{date,ids},...hist.filter(x=>x&&x.date!==date)].slice(0,14);write(QH,hist);
+  return ids.map((id,i)=>QUESTIONS[THEMES[i].key][id]);
+}
 function show(name){view=name;['home','session','complete','historyView'].forEach(x=>$(x).classList.toggle('hidden',x!==name));window.scrollTo(0,0);}
 function saveDraft(){if(state)write(DRAFT,state);}
 function remaining(){return Math.max(0,Math.ceil((state.deadline-Date.now())/1000));}
-function tick(){if(view!=='session'||!state)return;const left=remaining();$('timer').textContent=format(left);const future=THEMES.slice(state.step+1).reduce((sum,t)=>sum+t[2],0);$('total').textContent=`TOTAL LEFT ${format(left+future)}`;const spent=state.budget-left-future;$('progress').max=state.budget;$('progress').value=Math.max(0,spent);const status=left===0?'TIME UP':left<=30?'WRAP IT UP':'';if(lastStatus!==status){$('status').textContent=status;lastStatus=status;}}
-function renderStep(){const t=THEMES[state.step];$('stepNo').textContent=`STEP 0${state.step+1} / 07`;$('theme').textContent=t[0];$('subtitle').textContent=t[1];$('question').textContent=t[3];$('guide').textContent=t[4];$('answer').value=state.answers[state.step];$('next').textContent=state.step===6?'COMPLETE →':'NEXT →';lastStatus='reset';show('session');tick();}
-function start(){state={date:dateOf(),step:0,answers:Array(7).fill(''),budget:900,deadline:Date.now()+120000};saveDraft();renderStep();}
+function tick(){if(view!=='session'||!state)return;const left=remaining();$('timer').textContent=format(left);const future=THEMES.slice(state.step+1).reduce((s,t)=>s+t.sec,0);$('total').textContent=`TOTAL LEFT ${format(left+future)}`;const spent=state.budget-left-future;$('progress').max=state.budget;$('progress').value=Math.max(0,spent);const status=left===0?'TIME UP':left<=30?'WRAP IT UP':'';if(lastStatus!==status){$('status').textContent=status;lastStatus=status;}}
+function renderStep(){const t=THEMES[state.step];$('stepNo').textContent=`STEP 0${state.step+1} / 07`;$('theme').textContent=t.key;$('subtitle').textContent=t.title;$('question').textContent=state.questions[state.step];$('guide').textContent=t.guide;$('answer').value=state.answers[state.step];$('next').textContent=state.step===6?'COMPLETE →':'NEXT →';lastStatus='reset';show('session');tick();}
+function start(){const d=dateOf();state={date:d,step:0,answers:Array(7).fill(''),questions:dailyQuestions(d),budget:900,deadline:Date.now()+THEMES[0].sec*1000};saveDraft();renderStep();}
 function sentence(value){return value.trim().split(/[\n。！？!?]/).find(x=>x.trim())?.trim()||'';}
-function buildRecord(){const answers=state.answers.slice();const focus=sentence(answers[5])||sentence(answers[2])||sentence(answers[0]);return {id:globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random()}`,date:state.date,completedAt:new Date().toISOString(),answers,os:[0,2,3,4,6].map(i=>({theme:THEMES[i][0],text:answers[i]})),line:focus?`今日は、${focus}。`:'今日は、自分が大切にしたいことを一つ選び、そのための一歩に使う。'};}
+function buildRecord(){const answers=state.answers.slice();const focus=sentence(answers[5])||sentence(answers[2])||sentence(answers[0]);return {id:globalThis.crypto?.randomUUID?.()||`${Date.now()}-${Math.random()}`,date:state.date,completedAt:new Date().toISOString(),answers,questions:state.questions.slice(),os:[0,2,3,4,6].map(i=>({theme:THEMES[i].key,text:answers[i]})),line:focus?`今日は、${focus}。`:'今日は、自分が大切にしたいことを一つ選び、そのための一歩に使う。'};}
 function card(theme,value){const el=document.createElement('article');el.className='card';const h=document.createElement('h3');h.textContent=theme;const p=document.createElement('p');p.className='answer';p.textContent=value.trim()||'まだ言葉になっていない。今日の中で、問いを持っておく。';el.append(h,p);return el;}
-function renderResult(record){current=record;$('resultDate').textContent=record.date+' / DAILY BOOT';$('os').replaceChildren(...record.os.map(x=>card(x.theme,x.text)));$('other').replaceChildren(...[1,5].map(i=>card(THEMES[i][0],record.answers[i])));$('todayLine').textContent=record.line;$('lineEdit').value=record.line;$('saved').textContent='回答から振り返りを構成しています。AIによる分析ではありません。';show('complete');}
-function finish(){current=buildRecord();records=[current,...records].slice(0,60);const ok=write(KEY,records);if(ok){try{localStorage.removeItem(DRAFT);}catch(e){/* completed record remains available */}}state=null;$('resume').classList.add('hidden');renderResult(current);$('saved').textContent=ok?'この端末に保存しました。':'端末に保存できていません。回答をコピーして保管してください。';}
+function renderResult(record){current=record;$('resultDate').textContent=record.date+' / DAILY BOOT';$('os').replaceChildren(...record.os.map(x=>card(x.theme,x.text)));$('other').replaceChildren(...[1,5].map(i=>card(THEMES[i].key,record.answers[i])));$('todayLine').textContent=record.line;$('lineEdit').value=record.line;$('saved').textContent='回答から振り返りを構成しています。AIによる分析ではありません。';show('complete');}
+function finish(){current=buildRecord();records=[current,...records].slice(0,60);const ok=write(KEY,records);if(ok){try{localStorage.removeItem(DRAFT);}catch(e){}}state=null;$('resume').classList.add('hidden');renderResult(current);$('saved').textContent=ok?'この端末に保存しました。':'端末に保存できていません。回答をコピーして保管してください。';}
+
 $('start').onclick=()=>{if(state&&!confirm('途中の回答を破棄して、新しく始めますか？'))return;start();};
 $('answer').addEventListener('input',()=>{state.answers[state.step]=$('answer').value;saveDraft();});
 $('extend').onclick=()=>{state.deadline=Math.max(Date.now(),state.deadline)+60000;state.budget+=60;saveDraft();tick();};
-$('next').onclick=()=>{state.answers[state.step]=$('answer').value;if(state.step===6){finish();return;}state.budget-=remaining();state.step++;state.deadline=Date.now()+THEMES[state.step][2]*1000;saveDraft();renderStep();};
+$('next').onclick=()=>{state.answers[state.step]=$('answer').value;if(state.step===6){finish();return;}state.budget-=remaining();state.step++;state.deadline=Date.now()+THEMES[state.step].sec*1000;saveDraft();renderStep();};
 $('leave').onclick=()=>{saveDraft();$('resume').classList.remove('hidden');show('home');};
 $('resume').onclick=()=>{if(state)renderStep();};
 $('saveLine').onclick=()=>{const line=$('lineEdit').value.trim();if(!line){$('saved').textContent='今日持っていく一文を入力してください。';return;}current.line=line;const i=records.findIndex(x=>x.id===current.id);if(i>=0)records[i]=current;else records=[current,...records].slice(0,60);const ok=write(KEY,records);$('todayLine').textContent=line;$('saved').textContent=ok?'今日の一文を保存しました。':'端末に保存できていません。';};
 $('back').onclick=$('historyBack').onclick=()=>show('home');
 $('history').onclick=()=>{const list=$('historyList');list.replaceChildren();if(!records.length){const p=document.createElement('p');p.textContent='最初の朝は、ここから。まだ記録はありません。';list.append(p);}records.forEach(r=>{const b=document.createElement('button');b.textContent=`${r.date} / ${r.line.slice(0,45)}`;b.onclick=()=>renderResult(r);list.append(b);});show('historyView');};
+
 $('date').textContent=dateOf()+' / A NEW DAY';
-THEMES.forEach((t,i)=>{const li=document.createElement('li');const a=document.createElement('strong');a.textContent=`0${i+1}  ${t[0]}`;const b=document.createElement('span');b.textContent=format(t[2]);li.append(a,b);$('stepList').append(li);});
+THEMES.forEach((t,i)=>{const li=document.createElement('li');const a=document.createElement('strong');a.textContent=`0${i+1}  ${t.key}`;const b=document.createElement('span');b.textContent=format(t.sec);li.append(a,b);$('stepList').append(li);});
 const loaded=read(KEY,[]);records=Array.isArray(loaded)?loaded.filter(validRecord).slice(0,60):[];
-const draft=read(DRAFT,null);if(draft&&Number.isInteger(draft.step)&&draft.step>=0&&draft.step<7&&Array.isArray(draft.answers)&&draft.answers.length===7&&draft.answers.every(a=>typeof a==='string')&&Number.isFinite(draft.deadline)&&Number.isFinite(draft.budget)&&typeof draft.date==='string'){state=draft;$('resume').classList.remove('hidden');}
+const draft=read(DRAFT,null);
+if(draft&&Number.isInteger(draft.step)&&draft.step>=0&&draft.step<7&&Array.isArray(draft.answers)&&draft.answers.length===7&&draft.answers.every(a=>typeof a==='string')&&Number.isFinite(draft.deadline)&&Number.isFinite(draft.budget)&&typeof draft.date==='string'){
+ state=draft;if(!Array.isArray(state.questions)||state.questions.length!==7)state.questions=dailyQuestions(state.date);$('resume').classList.remove('hidden');
+}
 setInterval(tick,250);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick();});window.addEventListener('pagehide',saveDraft);
 </script></body></html>
